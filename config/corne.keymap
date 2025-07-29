@@ -37,18 +37,8 @@
         compatible = "zmk,behavior-hold-tap";
         #binding-cells = <2>;
         flavor = "tap-preferred";
-        tapping-term-ms = <200>;
-        quick-tap-ms = <200>;
-        require-prior-idle-ms = <125>;
-        bindings = <&kp>, <&kp>;
-    };
-
-    rpiq: require_prior_idle {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "tap-preferred";
-        tapping-term-ms = <180>;
-        quick-tap-ms = <180>;
+        tapping-term-ms = <190>;
+        quick-tap-ms = <190>;
         require-prior-idle-ms = <125>;
         bindings = <&kp>, <&kp>;
     };
@@ -60,8 +50,8 @@
             bindings = <
 &none  &kp APOSTROPHE     &kp COMMA       &kp PERIOD   &kp P             &kp Y    &kp F  &kp G              &kp C        &kp R           &kp L           &none
 &none  &kp A              &kp O           &kp E        &kp U             &kp I    &kp D  &kp H              &kp T        &kp N           &kp S           &none
-&none  &rpi LEFT_GUI SEMI &rpi LEFT_ALT Q &rpi LCTRL J &rpiq LEFT_SHIFT K &kp X   &kp B  &rpiq RIGHT_SHIFT M &rpi RCTRL W &rpi LEFT_ALT V &rpi LEFT_GUI Z  &none
-                                          &kp TAB      &rpiq LEFT_SHIFT BACKSPACE     &mo 1    &mo 2  &rpiq RIGHT_SHIFT SPACE          &kp ENTER
+&none  &rpi LEFT_GUI SEMI &rpi LEFT_ALT Q &rpi LCTRL J &rpi LEFT_SHIFT K &kp X   &kp B  &rpi RIGHT_SHIFT M &rpi RCTRL W &rpi LEFT_ALT V &rpi LEFT_GUI Z  &none
+                                          &kp TAB      &rpi LEFT_SHIFT BACKSPACE     &mo 1    &mo 2  &rpi RIGHT_SHIFT SPACE          &kp ENTER
             >;
         };
 
