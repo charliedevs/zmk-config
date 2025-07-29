@@ -43,6 +43,16 @@
         bindings = <&kp>, <&kp>;
     };
 
+    rpiq: require_prior_idle {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "tap-preferred";
+        tapping-term-ms = <180>;
+        quick-tap-ms = <180>;
+        require-prior-idle-ms = <125>;
+        bindings = <&kp>, <&kp>;
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -50,8 +60,8 @@
             bindings = <
 &none  &kp APOSTROPHE     &kp COMMA       &kp PERIOD   &kp P             &kp Y    &kp F  &kp G              &kp C        &kp R           &kp L           &none
 &none  &kp A              &kp O           &kp E        &kp U             &kp I    &kp D  &kp H              &kp T        &kp N           &kp S           &none
-&none  &rpi LEFT_GUI SEMI  &rpi LEFT_ALT Q  &rpi LCTRL J  &rpi LEFT_SHIFT K  &kp X    &kp B  &rpi RIGHT_SHIFT M  &rpi RCTRL W  &rpi LEFT_ALT V  &rpi LEFT_GUI Z  &none
-                                          &kp TAB      &kp BACKSPACE     &mo 1    &mo 2  &kp SPACE          &kp ENTER
+&none  &rpi LEFT_GUI SEMI &rpi LEFT_ALT Q &rpi LCTRL J &rpiq LEFT_SHIFT K &kp X   &kp B  &rpiq RIGHT_SHIFT M &rpi RCTRL W &rpi LEFT_ALT V &rpi LEFT_GUI Z  &none
+                                          &kp TAB      &rpiq LEFT_SHIFT BACKSPACE     &mo 1    &mo 2  &rpiq RIGHT_SHIFT SPACE          &kp ENTER
             >;
         };
 
@@ -59,8 +69,8 @@
             bindings = <
 &trans  &kp GRAVE           &kp LESS_THAN                  &kp GREATER_THAN  &kp MINUS            &kp PIPE         &kp CARET    &kp LEFT_PARENTHESIS         &kp RIGHT_PARENTHESIS    &kp DOLLAR          &kp BACKSLASH  &trans
 &trans  &kp EXCLAMATION     &kp ASTERISK                   &kp SLASH         &kp EQUAL            &kp AMPERSAND    &kp HASH     &kp LEFT_BRACE               &kp RIGHT_BRACE          &kp COLON           &kp QUESTION   &trans
-&trans  &rpi LEFT_GUI TILDE  &rpi LEFT_ALT NON_US_BACKSLASH  &rpi LCTRL UNDER   &rpi LEFT_SHIFT PLUS  &kp PERCENT      &kp AT_SIGN  &rpi LEFT_SHIFT LEFT_BRACKET  &rpi RCTRL RIGHT_BRACKET  &rpi LEFT_ALT EQUAL  &kp LEFT_GUI   &trans
-                                                           &trans            &trans               &none            &mo 3        &trans                       &trans
+&trans  &rpi LEFT_GUI TILDE &rpi LEFT_ALT NON_US_BACKSLASH &rpi LCTRL UNDER  &rpi LEFT_SHIFT PLUS &kp PERCENT      &kp AT_SIGN  &rpi LEFT_SHIFT LEFT_BRACKET  &rpi RCTRL RIGHT_BRACKET  &rpi LEFT_ALT EQUAL  &kp LEFT_GUI   &trans
+                                                           &trans            &kp DELETE           &none            &mo 3        &trans                       &trans
             >;
         };
 
@@ -69,7 +79,7 @@
 &trans  &trans        &kp HOME      &kp UP_ARROW    &kp END          &kp PG_UP        &kp CARET   &kp N7                    &kp N8              &kp N9                 &kp SLASH          &trans
 &trans  &trans        &kp LEFT      &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN    &kp PERIOD  &kp NUMBER_4              &kp N5              &kp NUMBER_6           &kp MINUS          &trans
 &trans  &kp LEFT_GUI  &kp LEFT_ALT  &kp LCTRL       &kp LEFT_SHIFT   &trans           &kp N0      &rpi RIGHT_SHIFT NUMBER_1  &rpi RCTRL NUMBER_2  &rpi LEFT_ALT NUMBER_3  &rpi LEFT_GUI PLUS  &trans
-                                    &trans          &trans           &mo 3            &none       &trans                    &trans
+                                    &trans          &kp DELETE       &mo 3            &none       &trans                    &trans
             >;
         };
 
